@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Initialization from "./initialize";
 import Board from "./board";
 import { Player } from "./player";
+import NewGameButton from "./newGameButton";
 
 class Darts extends Component {
   constructor(props) {
@@ -55,11 +56,14 @@ class Darts extends Component {
     return (
       <div className="topWrap container-fluid d-flex justify-content-center h-100 p-0">
         {this.state.initializationDone ? (
-          <Board
-            players={this.state.players}
-            points={this.state.points}
-            newGame={this.newGame}
-          />
+          <div>
+            <Board
+              players={this.state.players}
+              points={this.state.points}
+              newGame={this.newGame}
+            />
+            <NewGameButton newGame={this.newGame} />
+          </div>
         ) : (
           <Initialization
             players={this.state.players}
