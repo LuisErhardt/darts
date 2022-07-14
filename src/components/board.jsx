@@ -4,6 +4,7 @@ import MultipliersGrid from "./multipliersGrid";
 import { Player } from "./player";
 import Stats from "./stats";
 import EndingScreen from "./endingScreen";
+import NewGameButton from "./newGameButton";
 
 class Board extends Component {
   constructor(props) {
@@ -155,6 +156,7 @@ class Board extends Component {
               inputDisabled={this.state.inputDisabled}
             />
           </div>
+          <NewGameButton newGame={this.newGame} />
         </div>
       );
     } else {
