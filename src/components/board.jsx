@@ -156,7 +156,7 @@ class Board extends Component {
               inputDisabled={this.state.inputDisabled}
             />
           </div>
-          <NewGameButton newGame={this.newGame} />
+          <NewGameButton newGame={this.props.newGame} />
         </div>
       );
     } else {
