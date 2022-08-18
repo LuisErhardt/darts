@@ -55,11 +55,7 @@ class Darts extends Component {
     return (
       <div className="topWrap container-fluid d-flex justify-content-center h-100 p-0">
         {this.state.initializationDone ? (
-          <Board
-            players={this.state.players}
-            points={this.state.points}
-            newGame={this.newGame}
-          />
+          <Board players={this.state.players} points={this.state.points} newGame={this.newGame} />
         ) : (
           <Initialization
             players={this.state.players}

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import NumbersGrid from "./numbersGrid";
-import MultipliersGrid from "./multipliersGrid";
-import { Player } from "./player";
 import Stats from "./stats";
 import EndingScreen from "./endingScreen";
-import NewGameButton from "./newGameButton";
+import { updateHeight } from "./sizes";
 
 class Board extends Component {
   constructor(props) {
@@ -24,6 +22,10 @@ class Board extends Component {
     this.updateCurrentPlayer = this.updateCurrentPlayer.bind(this);
     this.hasWon = this.hasWon.bind(this);
     this.busted = this.busted.bind(this);
+  }
+
+  componentDidMount() {
+    updateHeight();
   }
 
   handleChange(throwInput) {
@@ -139,33 +141,25 @@ class Board extends Component {
   render() {
     if (!this.state.gameOver) {
       return (
-        <div className="wrap">
+        <div id="boardWrap">
           <Stats players={this.state.players} />
-          <div>
-            <MultipliersGrid
+          <div id="lowerBoard">
+            <NumbersGrid
+              myClick={this.handleChange}
               doubleIsPressed={this.state.doubleIsPressed}
               tripleIsPressed={this.state.tripleIsPressed}
               handleDouble={this.handleDouble}
               handleTriple={this.handleTriple}
-            />
-            <NumbersGrid
-              myClick={this.handleChange}
-              doubleIsPressed={this.state.doubleIsPressed}
               undo={this.handleUndo}
               showUndo={this.state.showUndo}
               inputDisabled={this.state.inputDisabled}
+              newGame={this.props.newGame}
             />
           </div>
-          <NewGameButton newGame={this.props.newGame} />
         </div>
       );
     } else {
-      return (
-        <EndingScreen
-          winner={this.state.players[0]}
-          newGame={this.props.newGame}
-        />
-      );
+      return <EndingScreen winner={this.state.players[0]} newGame={this.props.newGame} />;
     }
   }
 }

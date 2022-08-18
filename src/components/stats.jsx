@@ -29,20 +29,11 @@ function Stats(props) {
 
   const sPContent = sidePlayers.map(function (player, index) {
     return (
-      <div
-        key={index}
-        className="d-flex flex-wrap justify-content-center align-items-center w-100"
-      >
-        <div className="d-flex justify-content-center align-items-center w-100">
-          {player.name}
-        </div>
+      <div key={index} className="d-flex flex-wrap justify-content-center align-items-center w-100">
+        <div className="d-flex justify-content-center align-items-center w-100">{player.name}</div>
         <div className="d-flex justify-content-around align-items-center w-100">
-          <div className="d-flex justify-content-center align-items-center">
-            {player.points}
-          </div>
-          <div className="d-flex justify-content-center align-items-center">
-            {player.average}
-          </div>
+          <div className="d-flex justify-content-center align-items-center">{player.points}</div>
+          <div className="d-flex justify-content-center align-items-center">{player.average}</div>
         </div>
       </div>
     );
@@ -50,15 +41,14 @@ function Stats(props) {
 
   return (
     <div id="statsWrap">
-      <div className="d-flex flex-nowrap justify-content-between w-100 fs-2 bg-light text-dark rounded">
+      <div className="d-flex flex-nowrap justify-content-between w-100 h-100 fs-2 bg-light text-dark rounded">
         <div id="statsMain" className="border-end border-dark">
           {mPContent(mainPlayer)}
         </div>
-        <div
-          id="statsSide"
-          className="d-flex flex-wrap justify-content-center align-items-stretch fs-5"
-        >
-          <div>{sPContent}</div>
+        <div id="statsSide" className="d-flex flex-wrap justify-content-center align-items-stretch fs-5">
+          <div id="heightSetter" className="d-flex flex-wrap justify-content-center align-items-stretch">
+            {sPContent}
+          </div>
         </div>
       </div>
     </div>
