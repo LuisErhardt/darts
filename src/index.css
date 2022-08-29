@@ -96,11 +96,11 @@ body {
 }
 
 .endingScreen {
-  height: 100%;
+  height: 100vh;
 }
 
-#trophy {
-  height: 300px;
+#trophyWrap {
+  height: 30%;
 }
 
 .endingStats {

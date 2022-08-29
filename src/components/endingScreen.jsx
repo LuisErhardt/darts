@@ -6,8 +6,8 @@ function EndingScreen(props) {
 
   return (
     <div className="endingScreen w-100">
-      <div className="d-flex justify-content-center">
-        <img id="trophy" src={logo} />
+      <div id="trophyWrap" className="d-flex justify-content-center">
+        <img alt="" src={logo} />
       </div>
       <div className="endingStats d-flex flex-wrap justify-content-center w-100 mb-3">
         <div>
