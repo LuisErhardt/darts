@@ -12,7 +12,8 @@ class Initialization extends Component {
     this.setState({ name: event.target.value });
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     const name = this.state.name;
     if (name !== "") {
       this.setState({ name: "" });
@@ -24,12 +25,8 @@ class Initialization extends Component {
     const players = this.props.players.map(function (player, index) {
       return (
         <div className="initPlayer ms-3 me-3 mb-3" key={index}>
-          <h3 className="d-flex flex-wrap justify-content-center">
-            Spieler {index + 1}
-          </h3>
-          <div className="d-flex flex-wrap justify-content-center">
-            {player}
-          </div>
+          <h3 className="d-flex flex-wrap justify-content-center">Spieler {index + 1}</h3>
+          <div className="d-flex flex-wrap justify-content-center">{player}</div>
         </div>
       );
     });
@@ -64,21 +61,20 @@ class Initialization extends Component {
                 Name von Spieler {this.props.players.length + 1} eingeben:
               </div>
               <div className="d-flex justify-content-center m-2">
-                <div className="d-flex justify-content-center">
-                  <input
-                    id="nameInput"
-                    className=""
-                    type="text"
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                  />
-                  <button
-                    className="btn btn-secondary"
-                    onClick={this.handleSubmit}
-                  >
-                    <i className="bi bi-check-lg"></i>
-                  </button>
-                </div>
+                <form onSubmit={this.handleSubmit}>
+                  <div className="d-flex justify-content-center">
+                    <input
+                      id="nameInput"
+                      className=""
+                      type="text"
+                      value={this.state.name}
+                      onChange={this.handleChange}
+                    />
+                    <button className="btn btn-secondary" type="submit">
+                      <i className="bi bi-check-lg"></i>
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           ) : (
@@ -90,10 +86,7 @@ class Initialization extends Component {
           {players}
           {this.props.players.length > 0 ? (
             <div>
-              <button
-                className="btn btn-warning"
-                onClick={this.props.deletePlayer}
-              >
+              <button className="btn btn-warning" onClick={this.props.deletePlayer}>
                 Letzten Spieler löschen
               </button>
             </div>
@@ -102,10 +95,7 @@ class Initialization extends Component {
           )}
         </div>
         <div className="d-flex justify-content-center">
-          <button
-            className="btn btn-primary btn-lg"
-            onClick={this.props.startGame}
-          >
+          <button className="btn btn-primary btn-lg" onClick={this.props.startGame}>
             Spiel starten
           </button>
         </div>
