@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/darts/static/css/main.00b8e9a1.css",
+    "main.js": "/darts/static/js/main.53d58a0e.js",
+    "static/js/787.370681a6.chunk.js": "/darts/static/js/787.370681a6.chunk.js",
+    "static/media/Trophy.svg": "/darts/static/media/Trophy.853a5c5ec4dff7656981c9937d94ecda.svg",
+    "index.html": "/darts/index.html",
+    "main.00b8e9a1.css.map": "/darts/static/css/main.00b8e9a1.css.map",
+    "main.53d58a0e.js.map": "/darts/static/js/main.53d58a0e.js.map",
+    "787.370681a6.chunk.js.map": "/darts/static/js/787.370681a6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.00b8e9a1.css",
+    "static/js/main.53d58a0e.js"
+  ]
+}
