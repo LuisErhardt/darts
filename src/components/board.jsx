@@ -93,6 +93,9 @@ class Board extends Component {
     }
   }
 
+  /**
+   * Checks if the player has legally won the game.
+   */
   hasWon(player) {
     return this.state.doubleIsPressed && player.points === 0;
   }

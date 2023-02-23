@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 class Multiplier extends Component {
   setStyle() {
-    const pressedStyle = "input btn btn-success d-flex justify-content-center align-items-center fw-bold flex-grow-1";
-    const unpressedStyle = "input btn btn-secondary d-flex justify-content-center align-items-center fw-bold flex-grow-1";
-
+    const defaultStyles = "input btn d-flex justify-content-center align-items-center fw-bold flex-grow-1 ";
+    let colorStyle = "";
     if (this.props.name === "Double") {
-      return this.props.doubleIsPressed ? pressedStyle : unpressedStyle;
+      colorStyle = this.props.doubleIsPressed ? "btn-success" : "btn-secondary";
+    } else {
+      colorStyle = this.props.tripleIsPressed ? "btn-success" : "btn-secondary";
     }
-    return this.props.tripleIsPressed ? pressedStyle : unpressedStyle;
+    return defaultStyles + colorStyle;
   }
 
   render() {

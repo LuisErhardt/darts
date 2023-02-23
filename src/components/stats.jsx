@@ -4,7 +4,7 @@ function Stats(props) {
   const players = props.players;
   const mainPlayer = players[0];
   const sidePlayers = players.slice(1, players.length);
-  const mPContent = function (mainPlayer) {
+  const mPContent = (mainPlayer) => {
     return (
       <div className="gridRow row row-cols-2 m-0 h-100">
         <div className="col d-flex justify-content-center align-items-center">
