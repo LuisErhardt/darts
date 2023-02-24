@@ -39,8 +39,12 @@ class Initialization extends Component {
     const players = this.state.players.map(function (player, index) {
       return (
         <div className="initPlayer ms-3 me-3 mb-3" key={index}>
-          <h3 className="d-flex flex-wrap justify-content-center">Spieler {index + 1}</h3>
-          <div className="d-flex flex-wrap justify-content-center">{player}</div>
+          <h3 className="d-flex flex-wrap justify-content-center" aria-label={"Spieler " + String(index + 1)}>
+            Spieler {index + 1}
+          </h3>
+          <div className="d-flex flex-wrap justify-content-center" aria-label={player}>
+            {player}
+          </div>
         </div>
       );
     });
@@ -71,7 +75,10 @@ class Initialization extends Component {
         <div className="d-flex justify-content-center">
           {this.state.players.length < 4 ? (
             <div>
-              <div className="d-flex justify-content-center">
+              <div
+                className="d-flex justify-content-center"
+                aria-label={"Name von Spieler " + String(this.state.players.length + 1) + " eingeben:"}
+              >
                 Name von Spieler {this.state.players.length + 1} eingeben:
               </div>
               <div className="d-flex justify-content-center m-2">
@@ -100,7 +107,7 @@ class Initialization extends Component {
           {players}
           {this.state.players.length > 0 ? (
             <div>
-              <button className="btn btn-warning" onClick={this.deletePlayehandleD}>
+              <button className="btn btn-warning" onClick={this.handleDeletePlayer}>
                 Letzten Spieler löschen
               </button>
             </div>
