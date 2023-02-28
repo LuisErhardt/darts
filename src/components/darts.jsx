@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Initialization from "./initialize";
 import Board from "./board";
 import { Player } from "./player";
+import Credits from "./credits";
 
 class Darts extends Component {
   constructor(props) {
@@ -35,16 +36,11 @@ class Darts extends Component {
         {this.state.initializationDone ? (
           <Board players={this.state.players} points={this.state.points} newGame={this.newGame} />
         ) : (
-          <Initialization startGame={this.startGame} />
+          <>
+            <Initialization startGame={this.startGame} />
+            <Credits />
+          </>
         )}
-        <div id="referenceBox" className="position-absolute text-muted d-flex justify-content-center">
-          <div>
-            © 2023{" "}
-            <a className="text-muted" href="https://github.com/LuisErhardt" target="_blank" rel="noopener noreferrer">
-              Luis Erhardt
-            </a>
-          </div>
-        </div>
       </div>
     );
   }

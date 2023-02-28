@@ -39,67 +39,49 @@ class Initialization extends Component {
     const players = this.state.players.map(function (player, index) {
       return (
         <div className="initPlayer ms-3 me-3 mb-3" key={index}>
-          <h3 className="d-flex flex-wrap justify-content-center" aria-label={"Spieler " + String(index + 1)}>
-            Spieler {index + 1}
-          </h3>
-          <div className="d-flex flex-wrap justify-content-center" aria-label={player}>
-            {player}
-          </div>
+          <h3 aria-label={"Spieler " + String(index + 1)}>Spieler {index + 1}</h3>
+          <div aria-label={player}>{player}</div>
         </div>
       );
     });
     return (
-      <div className="fs-4 initWrap">
-        <h1 className="d-flex justify-content-center">Darts Counter</h1>
-        <div className="border-top border-2 d-flex flex-column align-items-stretch">
-          <div className="d-flex justify-content-around">
-            <div className="">
-              <div className="d-flex justify-content-center">Punkte</div>
-              <div className="d-flex justify-content-center m-2">
-                <button
-                  className="btn btn-primary btn-lg"
-                  type="button"
-                  aria-label="Punkte"
-                  value={this.state.points}
-                  onClick={(e) => {
-                    this.handlePointsChange();
-                    setTimeout(() => e.target.blur(), 400);
-                  }}
-                >
-                  {this.state.points}
-                </button>
-              </div>
-            </div>
-          </div>
+      <div className="fs-4 initWrap text-center">
+        <h1>Darts Counter</h1>
+        <div className="border-top border-2">
+          Punkte
+          <br />
+          <button
+            className="btn btn-primary btn-lg m-2"
+            type="button"
+            aria-label="Punkte"
+            value={this.state.points}
+            onClick={(e) => {
+              this.handlePointsChange();
+              setTimeout(() => e.target.blur(), 400);
+            }}
+          >
+            {this.state.points}
+          </button>
         </div>
         <div className="d-flex justify-content-center">
           {this.state.players.length < 4 ? (
             <div>
-              <div
-                className="d-flex justify-content-center"
-                aria-label={"Name von Spieler " + String(this.state.players.length + 1) + " eingeben:"}
-              >
-                Name von Spieler {this.state.players.length + 1} eingeben:
-              </div>
-              <div className="d-flex justify-content-center m-2">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="d-flex justify-content-center">
-                    <input
-                      id="nameInput"
-                      className=""
-                      type="text"
-                      value={this.state.name}
-                      onChange={(e) => this.handleNameChange(e)}
-                    />
-                    <button className="btn btn-secondary" type="submit" aria-label="submit">
-                      <i className="bi bi-check-lg"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
+              Name von Spieler {this.state.players.length + 1} eingeben:
+              <form onSubmit={this.handleSubmit} className="d-flex justify-content-center m-2">
+                <input
+                  id="nameInput"
+                  className=""
+                  type="text"
+                  value={this.state.name}
+                  onChange={(e) => this.handleNameChange(e)}
+                />
+                <button className="btn btn-secondary" type="submit" aria-label="submit">
+                  <i className="bi bi-check-lg"></i>
+                </button>
+              </form>
             </div>
           ) : (
-            <div>Maximal 4 Spieler möglich</div>
+            <>Maximal 4 Spieler möglich</>
           )}
         </div>
 
@@ -115,7 +97,7 @@ class Initialization extends Component {
             <div></div>
           )}
         </div>
-        <div className="d-flex justify-content-center">
+        <div>
           <button
             className="btn btn-primary btn-lg"
             onClick={() => this.props.startGame(this.state.players, this.state.points)}

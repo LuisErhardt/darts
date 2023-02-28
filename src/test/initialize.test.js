@@ -94,9 +94,9 @@ describe("Initialization", () => {
 
     render(<Initialization startGame={startGame} />);
 
-    let heading = screen.getByLabelText("Name von Spieler 1 eingeben:");
+    let heading = screen.getByText("Name von Spieler 1 eingeben:");
 
-    expect(heading).toHaveTextContent("Name von Spieler 1 eingeben:");
+    expect(heading).toBeInTheDocument;
 
     const input = screen.getByRole("textbox");
 
@@ -108,8 +108,8 @@ describe("Initialization", () => {
 
     await user.click(submit);
 
-    heading = screen.getByLabelText("Name von Spieler 2 eingeben:");
-    expect(heading).toHaveTextContent("Name von Spieler 2 eingeben:");
+    heading = screen.getByText("Name von Spieler 2 eingeben:");
+    expect(heading).toBeInTheDocument;
   });
 
   it("No player is added, when the input is empty and submit is clicked", async () => {
